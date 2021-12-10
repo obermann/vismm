@@ -1,0 +1,32 @@
+#vis-network-container {
+	background-color: white;
+}
+
+#editor {
+	background-color: rgba(0, 0, 255, 0.5);
+}
+
+#editor-node-label {
+	color: white;
+	/*caret-color*/
+}
+
+#editor ::selection {
+	background-color: #D2E5FF; /* = vis selected node background color */
+	color: white;
+}
+
+.error::first-line {
+	background-color: fuchsia;
+}
+
+#sprite {
+	background-color: rgba(0, 0, 255, 0.5);
+	margin: 0;
+	padding: 0;
+	position: fixed;
+	z-index: -1;
+	transition-property: left, top, height, width, background-color;
+	transition-duration: 0.6s;
+	transition-timing-function: ease-in;
+}

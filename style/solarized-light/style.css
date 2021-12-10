@@ -1,0 +1,33 @@
+#vis-network-container {
+	background-color: #fdf6e3; /*base3*/
+}
+
+#editor {
+	background-color: rgba(0, 43, 54, 0.7); /*base03 #002b36;*/
+}
+
+#editor-node-label {
+	color: rgba(186, 196, 196, 1); /*base1 #93a1a1; rgba(147, 161, 161, 1); (Corrected! 60% #93a1a1 -> 75% #bac4c4)*/
+}
+
+#editor ::selection {
+	/*Chrome will change the opacity of the background color of the selection if it is 1.*/
+	background-color: rgba(147, 161, 161, 0.99); /*base1 #93a1a1;*/
+	color: rgba(0, 43, 54, 1); /*base03 #002b36;*/
+}
+
+.error::first-line {
+	background-color: rgba(220, 50, 47, 0.99); /*red #dc322f;*/
+	color: rgba(186, 196, 196, 1); /*base1 Corrected!*/
+}
+
+#sprite {
+	background-color: rgba(0, 43, 54, 0.6);
+	margin: 0;
+	padding: 0;
+	position: fixed;
+	z-index: -1;
+	transition-property: left, top, height, width, background-color;
+	transition-duration: 0.6s;
+	transition-timing-function: ease-in;
+}

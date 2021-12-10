@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Help</title>
+		<style>
+			dd {
+				font-family: monospace;
+			}
+			.highlight {
+				border-left: .5em solid red;
+				padding-left: .5em;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Help</h1>
+		
+		<h2>Interaction</h2>
+		<p>No surprises here. Need to learn shortcuts are marked.
+		</p>
+		
+		<h3>File</h3>
+		<dl>
+			<dt>Open GraphViz DOT file</dt>
+			<dd>Drag and Drop</dd>
+			<dd>Ctrl+O</dd>
+			<dt>Save (download) GraphViz DOT file</dt>
+			<dd>Ctrl+S</dd>
+		</dl>
+		
+		<h3>Editing</h3>
+		<dl>
+			<dt>New Node</dt>
+			<dd>Double click on empty space</dd>
+			
+			<dt>Edit Node Label</dt>
+			<dd>Double click on the node</dd>
+			
+			<dt>Select Node/Edge</dt>
+			<dd>Click</dd>
+			
+			<dt>Select More Nodes/Edges</dt>
+			<dd>Tap</dd>
+			<dd>Ctrl+Click</dd>
+			
+			<dt>Delete Selected Nodes/Edges</dt>
+			<dd>Delete</dd>
+			<dd>Backspace</dd>
+			
+			<dt class="highlight">New Edge (Connect Nodes)</dt>
+			<dd>Select source node, then Shift+Click on target node(s)</dd>
+			
+			<dt>Undo</dt>
+			<dd>Ctrl+Z</dd>
+			<dd>Alt+Backspace</dd>
+			
+			<dt>Redo</dt>
+			<dd>Ctrl+Y</dd>
+			<dd>Ctrl+Shift+Z</dd>
+			
+			<dt>Clear</dt>
+			<dd>Use browser "Reload" function, e.g.:</dd>
+			<dd>Ctrl+R</dd>
+			<dd>F5</dd>
+		</dl>
+		
+		<h3>Editing Node Label</h3>
+		<dl>
+			<dt>Save Changes</dt>
+			<dd>Ctrl+S</dd>
+			
+			<dt>Cancel Editor</dt>
+			<dd>Escape</dd>
+		</dl>
+		
+		<h3>Viewing</h3>
+		<dl>
+			<dt>Zoom In</dt>
+			<dd>Mouse scroll up</dd>
+			<dd>+</dd>
+			<dd>=</dd>
+			<dd>[</dd>
+			<dd>PgUp</dd>
+			
+			<dt>Zoom Out</dt>
+			<dd>Mouse scroll down</dd>
+			<dd>-</dd>
+			<dd>]</dd>
+			<dd>PgDn</dd>
+			
+			<dt class="highlight">Zoom to Fit</dt>
+			<dd>F4</dd>
+			<dd>Ctrl+E</dd>
+			
+			<dt>Pan</dt>
+			<dd>Mouse drag on empty space</dd>
+			<dd>Arrows</dd>
+		</dl>
+		
+		<h2>File Format</h2>
+		<p>Any GraphViz <a href="http://graphviz.org/doc/info/lang.html">DOT</a> (*.gv, *.dot) file may be imported
+		(success is reported in JavaScript console log of the browser).
+		Saved file is a standard and rather simple GraphViz DOT file with HTML-like node labels.
+		It is meant to be viewed and printed with <a href="http://graphviz.org/">GraphViz</a> (open source graph visualization software).
+		</p>
+		
+		<h2>Min. Requirements</h2>
+		<ul>
+			<li>Internet Explorer 11</li>
+			<li>Chrome 26</li>
+			<li>Firefox 14</li>
+			<li>Opera 15</li>
+			<li>Safari 7</li>
+		</ul>
+		<p class="highlight">Beware that not all customized browsers allow all shortcuts (do check Ctrl+S (DOT file save) functionality).
+		</p>
+		
+		<h2>Installation</h2>
+		<p>vismm is a client-side application.
+		No information is sent or received from network.
+		No information is deliberately stored in browser cache.
+		vismm could be started from its local copy of HTML/CSS/JS file structure.
+		There are examples of CSS/JS to guide creation of custom display styles.
+		</p>
+		
+		<h2>Dependancies (included)</h2>
+		<ul>
+			<li><a href="http://visjs.org/">vis.js "Network"</a> modified version 8.3.3</li>
+			<li><a href="http://pegjs.org/">PEG.js</a> version 0.10.0</li>
+			<li><a href="http://todo">PEG for DOT</a></li>
+		</ul>
+		
+		<h2>License</h2>
+		<p>vismm is free software: you can redistribute it and/or modify
+		it under the terms of the GNU General Public License as published by
+		the Free Software Foundation, either version 3 of the License, or
+		(at your option) any later version.
+		</p>
+		<p>vismm is distributed in the hope that it will be useful,
+		but WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+		GNU General Public License for more details.
+		</p>
+		<p>You should have received a copy of the GNU General Public License
+		along with vismm.  If not, see <a href="https://www.gnu.org/licenses/">&lt;https://www.gnu.org/licenses/&gt;</a>.
+		</p>
+
+	</body>
+</html>

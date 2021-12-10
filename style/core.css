@@ -1,0 +1,58 @@
+html,
+body,
+#vis-network-container {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	vertical-align: baseline;
+	cursor: grab;
+}
+
+#editor-node-label,
+#editor-node-label p,
+#editor-node-label div {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+	line-height: 1;
+	text-indent: 0;
+}
+
+#vis-network-container,
+#editor {
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	min-height: 100vh;
+}
+
+#editor {
+	display: none;
+	cursor: auto;
+}
+
+#editor-node-label {
+	position: fixed;
+	height: auto;
+	width: auto;
+	min-width: 10px; /* To see a caret! */
+	white-space: nowrap;
+	background-color: transparent;
+	outline: 0px solid transparent; /* Remove border. */
+	font-family: Arial;
+	font-style: italic;
+	font-weight: normal;
+	font-size: 24pt; /* Initial size. */
+}
+
+#editor-node-label::first-line {
+	font-style: normal;
+	font-weight: bold;
+}

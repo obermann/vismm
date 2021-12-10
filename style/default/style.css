@@ -1,0 +1,21 @@
+#vis-network-container {
+	background-color: white;
+}
+
+#editor {
+	background-color: rgba(0, 0, 255, 0.5);
+}
+
+#editor-node-label {
+	color: white;
+	/*caret-color*/
+}
+
+#editor ::selection {
+	background-color: #D2E5FF; /* = vis selected node background color */
+	color: white;
+}
+
+.error::first-line {
+	background-color: fuchsia;
+}
