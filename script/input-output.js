@@ -288,8 +288,8 @@ var io = (function () {
 			// DOT does not support Unicode BOM.
 			var s = 'strict graph {\n';
 			s += 'charset="UTF-8"\n';
-			s += 'graph [overlap=false, splines=true, nodesep="0.36", fontname="sans-serif"]\n';
-			s += 'node [shape="box", style="rounded, filled", color="lightgray"]\n';
+			s += 'graph [overlap=false, splines=true, nodesep="0.36"]\n';
+			s += 'node [shape="box", style="rounded, filled", color="lightgray", fontname="sans-serif"]\n';
 			s += '/*\nTo decorate edges, e.g. like arrows, uncomment the following edge statement.\n';
 			s += 'http://www.graphviz.org/doc/info/attrs.html#k:arrowType\n*/\n';
 			s += '//edge [dir=forward, arrowtail=normal, arrowhead=normal]\n\n';
@@ -300,10 +300,10 @@ var io = (function () {
 					// Just to declare.
 					s += '<' + name + '> [\nlabel=<' + name + '>\n]\n\n';
 				else {
-					s += '<' + name + '> [\nlabel=<' + name + '<font point-size="9"><i>';
+					s += '<' + name + '> [\nlabel=<' + name + '<font point-size="9"><br align="left"/><i>\n';
 					for (var i = 1; i < a.length; i++)
-						s += '\n<br align="left"/>' + escForDot(a[i]);
-					s += '\n</i></font>>\n]\n\n';
+						s += escForDot(a[i]) + '<br align="left"/>\n';
+					s += '</i></font>>\n]\n\n';
 				}
 			});
 			visDataViews.edges.forEach(function (edge) {
