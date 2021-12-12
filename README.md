@@ -12,7 +12,9 @@ https://obermann.github.io/vismm/index-solarized-light.html
 
 https://obermann.github.io/vismm/index-with-sample.html (to start with something)
 
-I used vismm to create a HDMI CEC (Consumer Electronics Control) protocol [concept map](https://github.com/obermann/CEC_concept_map).
+I used vismm to create a [HDMI CEC (Consumer Electronics Control) protocol concept map](https://github.com/obermann/CEC_concept_map).
+
+GraphViz file format support can be tested with a convoluted [test file](https://github.com/obermann/PEG4DOT/tree/main/test).
 
 ## Customization
 
@@ -22,7 +24,7 @@ or better still consult vis-network version 8.3.3 documentation (https://github.
 JavaScript files are commented and more or less modular (e.g. input-output.js could be omitted and sample.js added for read-only demo).
 Consult [GraphViz documentation](https://graphviz.org/doc/info/attrs.html) to style saved graphs or customize input-output.js.
 
-## Depending
+## Dependencies
 
 [vis.js](http://visjs.org/)
 
