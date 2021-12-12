@@ -113,7 +113,6 @@ var nodeLabel = (function () {
 			//if (visDataViews.nodes.get({ filter: function (item) { return ((labelToName(item.label) === newName) && (item.id !== data[0].id)) } }).length) {
 			var a = cache.getIds(newName);
 			if (a && (a.length > 1 || a[0] !== data[0].id)) {
-				//editorNodeLabel.normalize(); do not work because browser inserts <span>s
 				editorNodeLabel.className = "error";
 				observer.observe(editorNodeLabel, { subtree: true, childList: true, characterData: true });
 				return false;
@@ -121,7 +120,7 @@ var nodeLabel = (function () {
 			if (data[0].group === "error") {
 				var a = cache.getIds(labelToName(data[0].label));
 				if (a.length === 2)
-					data.push({ id: visDataViews.nodes.get(a[1 - a.indexOf(data[0].id)]).id, group: "default" });
+					data.push({ id: a[1 - a.indexOf(data[0].id)], group: "default" });
 				data[0].group = "default";
 			}
 			data[0].label = label;
