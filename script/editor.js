@@ -16,7 +16,7 @@ visNetwork.addEventListener("deselectNode", function (e) {
 		visDataSet.add({
 			from: e.previousSelection.nodes[e.previousSelection.nodes.length - 1],
 			to: e.nodes[0]
-		});
+		}, "evEdit");
 		// Restore selection.
 		visNetwork.selectNodes(e.previousSelection.nodes, true);
 	}
@@ -57,6 +57,6 @@ visNetworkContainer.addEventListener("keydown", function (e) {
 		// Turns out that even with flush() two removals generate two events!
 		var a = visNetwork.getSelectedEdges();
 		Array.prototype.push.apply(a, visNetwork.getSelectedNodes());
-		visDataSet.remove(a);
+		visDataSet.remove(a, "evEdit");
 	}
 }, false);

@@ -2,12 +2,12 @@ var editorHistory = (function () {
 	var records = [];
 	var position = 0;
 	function store(event, properties, senderId) {
-		if (senderId === "ignore") return;
-		if (senderId === "clear") {
+		if (senderId === "evClear") {
 			records = [];
 			position = 0;
 			return;
 		}
+		if (senderId !== "evEdit") return;
 		// Forget possible redos.
 		records.length = position;
 		records.push({ event: event, properties: properties });
@@ -31,13 +31,13 @@ var editorHistory = (function () {
 			switch (records[position].event) {
 				case "add": // then remove
 					records[position].properties.data = visDataSet.get(records[position].properties.items);
-					visDataSet.remove(records[position].properties.items);
+					visDataSet.remove(records[position].properties.items, "evEdit");
 					break;
 				case "update":
 					/* data already stored by event
 					records[position].properties.data = visDataSet.get(records[position].properties.items);*/
 				case "remove": // then add
-					visDataSet.update(records[position].properties.oldData);
+					visDataSet.update(records[position].properties.oldData, "evEdit");
 			}
 			subscribe();
 		},
@@ -47,10 +47,10 @@ var editorHistory = (function () {
 			switch (records[position].event) {
 				case "add":
 				case "update":
-					visDataSet.update(records[position].properties.data);
+					visDataSet.update(records[position].properties.data, "evEdit");
 					break;
 				case "remove":
-					visDataSet.remove(records[position].properties.items);
+					visDataSet.remove(records[position].properties.items, "evEdit");
 			}
 			position += 1;
 			subscribe();

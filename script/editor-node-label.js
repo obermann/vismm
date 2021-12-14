@@ -117,12 +117,6 @@ var nodeLabel = (function () {
 				observer.observe(editorNodeLabel, { subtree: true, childList: true, characterData: true });
 				return false;
 			}
-			if (data[0].group === "error") {
-				var a = cache.getIds(labelToName(data[0].label));
-				if (a.length === 2)
-					data.push({ id: a[1 - a.indexOf(data[0].id)], group: "default" });
-				data[0].group = "default";
-			}
 			data[0].label = label;
 			observer.disconnect();
 			editor.style.display = "none";
@@ -135,7 +129,7 @@ var nodeLabel = (function () {
 			visNetwork.canvas.frame.focus();
 		},
 		save2: function () {
-			visDataSet.update(data);
+			visDataSet.update(data, "evEdit");
 		},
 		quit: function (e) {
 			observer.disconnect();

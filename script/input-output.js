@@ -133,19 +133,9 @@ var io = (function () {
 			id: data.id,
 			label: label
 		}
-		var name = labelToName(label);
-		var ids = cache.getIds(name);
-		if (ids) {
-			if (ids.length === 1) {
-				visDataSet.update({ id: ids[0], group: "error" }, "ignore");
-			}
-			newData.group = "error";
-		}
-		else
-			newData.group = "default";
 		delete data.dotNameType;
 		delete data.dotAttributes;
-		visDataSet.update(newData, "ignore");
+		visDataSet.update(newData, "evImport");
 	}
 
 	// New node def or spec. node attr application.
@@ -161,7 +151,7 @@ var io = (function () {
 			if (attr_list) {
 				data.dotAttributes.node = Object.setPrototypeOf(attr_list, attributes.node);
 			}
-			visDataSet.add(data, "ignore");
+			visDataSet.add(data, "evImport");
 		}
 		else {
 			if (attr_list) {
@@ -178,7 +168,7 @@ var io = (function () {
 				visDataSet.add({
 					from: edgeFrom,
 					to: data.id
-				}, "ignore");
+				}, "evImport");
 			else
 				console.log("DOT Import Report: Warning! Ignoring repeated edge from: " + edgeFrom + " to: " + data.id);
 		});
@@ -257,7 +247,7 @@ var io = (function () {
 				//console.log("AST", ast);
 				visNetwork.physics.enabled = false;
 				//visDataSet.setOptions({ queue: true });
-				visDataSet.clear("clear");
+				visDataSet.clear("evClear");
 				walkDot(ast[0], { node: {} }); // Importing first DOT graph only.
 				visDataViews.nodes.forEach(labelNode);
 				console.log("DOT Import Report: Info. Imported nodes: " + visDataViews.nodes.length + " edges: " + visDataViews.edges.length);

@@ -1,22 +1,19 @@
 /*
 Example of how to construct initial graph.
 */
-//visDataSet.clear("clear");
+//visDataSet.clear("evClear");
 visDataSet.add([
 	{
 		id: "1",
-		label: "First\n<i>One",
-		group: "default"
+		label: "First\n<i>One"
 	},
 	{
 		id: "2",
-		label: "Second\n<i>Two",
-		group: "default"
+		label: "Second\n<i>Two"
 	},
 	{
 		id: "3",
-		label: "Third\n<i>Three",
-		group: "default"
+		label: "Third\n<i>Three"
 	},
 	{
 		from: "1",
@@ -30,4 +27,4 @@ visDataSet.add([
 		from: "3",
 		to: "1"
 	}
-], "ignore");
+]);

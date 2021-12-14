@@ -186,21 +186,32 @@ var cache = (function () {
 	function add(data) {
 		if (!data.label) return;
 		var name = labelToName(data.label);
-		if (names.hasOwnProperty(name))
+		if (names.hasOwnProperty(name)) {
+			if (names[name].length === 1) {
+				visDataSet.update({ id: names[name][0], group: "error" }, "evGroup");
+			}
+			visDataSet.update({ id: data.id, group: "error" }, "evGroup");
 			names[name].push(data.id);
-		else
+		}
+		else {
+			visDataSet.update({ id: data.id, group: "default" }, "evGroup");
 			names[name] = [data.id];
+		}
 	}
 	function remove(data) {
 		if (!data.label) return;
 		var name = labelToName(data.label);
 		if (names[name].length === 1)
 			delete names[name];
-		else
+		else {
 			names[name].splice(names[name].indexOf(data.id), 1);
+			if (names[name].length === 1) {
+				visDataSet.update({ id: names[name][0], group: "default" }, "evGroup");
+			}
+		}
 	}
 	function store(event, properties, senderId) {
-		if (senderId === "clear") {
+		if (senderId === "evClear") {
 			names = {};
 			return;
 		}
@@ -210,7 +221,7 @@ var cache = (function () {
 				break;
 			case "update":
 				properties.data.forEach(function (data, i) {
-					if (!data.label) return; // This udate is not about label.
+					if (!data.label) return; // This update is not about label.
 					remove(properties.oldData[i]);
 					add(data);
 				});
