@@ -22,6 +22,7 @@ var style = {
 		},
 		edges: {
 			labelHighlightBold: false,
+			color: "#2B7CE9" // Do not want to inherit color from group:error nodes.
 			/* Possible options:
 				dynamic
 				continuous
