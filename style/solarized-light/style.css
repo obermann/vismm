@@ -16,11 +16,6 @@
 	color: rgba(0, 43, 54, 1); /*base03 #002b36;*/
 }
 
-.error::first-line {
-	background-color: rgba(220, 50, 47, 0.99); /*red #dc322f;*/
-	color: rgba(186, 196, 196, 1); /*base1 Corrected!*/
-}
-
 #sprite {
 	background-color: rgba(0, 43, 54, 0.6);
 	margin: 0;

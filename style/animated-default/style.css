@@ -16,10 +16,6 @@
 	color: white;
 }
 
-.error::first-line {
-	background-color: fuchsia;
-}
-
 #sprite {
 	background-color: rgba(0, 0, 255, 0.5);
 	margin: 0;

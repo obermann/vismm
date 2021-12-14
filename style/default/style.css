@@ -15,7 +15,3 @@
 	background-color: #D2E5FF; /* = vis selected node background color */
 	color: white;
 }
-
-.error::first-line {
-	background-color: fuchsia;
-}

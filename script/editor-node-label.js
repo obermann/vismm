@@ -6,10 +6,6 @@ var nodeLabel = (function () {
 	var separator = "P";
 	var data = null;
 	var ranges = [];
-	var observer = new MutationObserver(function(recordList, observer) {
-		observer.disconnect();
-		editorNodeLabel.className = "";
-	});
 
 	var padding = 72; // px
 	var fontSize = window.getComputedStyle(editorNodeLabel).getPropertyValue("font-size").match(/([+-]?[\d\.]+(?:e[+-]?\d+)?)(.*)/); //[string, number, unit]
@@ -72,7 +68,6 @@ var nodeLabel = (function () {
 				// New node.
 				data = [{
 					label: "",
-					group: "default",
 					x: e.pointer.canvas.x,
 					y: e.pointer.canvas.y
 				}];
@@ -81,8 +76,7 @@ var nodeLabel = (function () {
 				// Need to copy a node to follow implied read-only intent!
 				data = [{
 					id: n.id,
-					label: n.label,
-					group: n.group
+					label: n.label
 				}]
 			}
 			if (style.transition && style.transition.edit) {
@@ -94,10 +88,6 @@ var nodeLabel = (function () {
 		},
 		edit2: function () {
 			editorNodeLabel.innerHTML = (data[0].label === "")? "" : "<" + separator + ">" + data[0].label.split(labelSeparator).join("</" + separator + "><" + separator + ">") + "</" + separator + ">";
-			if (data[0].group === "error") {
-				editorNodeLabel.className = "error";
-				observer.observe(editorNodeLabel, { subtree: true, childList: true, characterData: true });
-			}
 			editor.style.display = "block";
 			resize();
 			// Focus.
@@ -108,17 +98,7 @@ var nodeLabel = (function () {
 			editorNodeLabel.focus(); // calls this.restoreSelection()
 		},
 		save1: function (e) {
-			var label = escForVis(nodeToLabel(editorNodeLabel));
-			var newName = labelToName(label);
-			//if (visDataViews.nodes.get({ filter: function (item) { return ((labelToName(item.label) === newName) && (item.id !== data[0].id)) } }).length) {
-			var a = cache.getIds(newName);
-			if (a && (a.length > 1 || a[0] !== data[0].id)) {
-				editorNodeLabel.className = "error";
-				observer.observe(editorNodeLabel, { subtree: true, childList: true, characterData: true });
-				return false;
-			}
-			data[0].label = label;
-			observer.disconnect();
+			data[0].label = escForVis(nodeToLabel(editorNodeLabel));
 			editor.style.display = "none";
 			if (style.transition && style.transition.save) {
 				style.transition.save(nodeLabel.save2, e);
@@ -132,9 +112,7 @@ var nodeLabel = (function () {
 			visDataSet.update(data, "evEdit");
 		},
 		quit: function (e) {
-			observer.disconnect();
 			editor.style.display = "none";
-			editorNodeLabel.className = "";
 			if (style.transition && style.transition.cancel) {
 				style.transition.cancel(function () {}, e);
 			}
