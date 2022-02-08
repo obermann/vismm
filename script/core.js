@@ -307,17 +307,20 @@ var options = {
 		useDefaultGroups: false
 	},
 	physics: {
+		minVelocity: 0.5, // Helps to shorten animation
 		barnesHut: {
+			damping: 0.5,
 			avoidOverlap: 1,
 			springConstant: 0.01,
 			centralGravity: 0.2
 		},
 		forceAtlas2Based: {
-			avoidOverlap: 1,
+			damping: 0.5,
+			avoidOverlap: 0.5,
 			springConstant: 0.04,
 			centralGravity: 0.005
 		},
-		solver: "barnesHut" // Default is "barnesHut"
+		solver: "forceAtlas2Based" // Default is "barnesHut"
 	}
 }
 
@@ -334,6 +337,19 @@ visNetwork.addEventListener("dragStart", function (e) {
 visNetwork.addEventListener("dragEnd", function () {
 	visNetworkContainer.style.cursor = ""; // "grab"
 });
+
+/*
+STOP ANIMATION (PHYSICS SIMULATION)
+Escape
+*/
+visNetworkContainer.addEventListener("keydown", function (e) {
+	if (!e.altKey && !e.ctrlKey && !e.metaKey && !e.shiftKey
+		&& (e.key === "Escape" || e.key === "Esc")) {
+		e.stopPropagation();
+		e.preventDefault();
+		visNetwork.stopSimulation();
+	}
+}, false);
 
 
 /*

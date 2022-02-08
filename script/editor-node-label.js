@@ -161,6 +161,7 @@ var nodeLabel = (function () {
 visNetwork.addEventListener("doubleClick", function (e) {
 	e.event.srcEvent.stopPropagation();
 	e.event.srcEvent.preventDefault();
+	visNetwork.stopSimulation();
 	nodeLabel.edit1(e);
 }, false);
 
